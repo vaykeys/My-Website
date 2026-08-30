@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="projectBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="60%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
+    </linearGradient>
+    <linearGradient id="hillsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#projectBg)" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 8" rx="14"/>
+  <rect x="40" y="36" width="520" height="230" rx="10" fill="#ffffff" stroke="#fde68a" stroke-width="2"/>
+  <polygon points="110,215 210,115 310,195 410,95 510,215" fill="url(#hillsGrad)" opacity="0.9"/>
+  <circle cx="160" cy="85" r="24" fill="#fbbf24"/>
+  <circle cx="480" cy="70" r="10" fill="#047857"/>
+  <circle cx="430" cy="55" r="5" fill="#f59e0b"/>
+  <text x="300" y="315" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="17" font-weight="700" fill="#78350f" text-anchor="middle">
+    [INSERT PROJECT IMAGE HERE]
+  </text>
+  <text x="300" y="342" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="600" fill="#047857" text-anchor="middle">
+    Recommended: images/project1.jpg
+  </text>
+</svg>

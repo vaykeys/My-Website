@@ -1,0 +1,1015 @@
+/* ==========================================================================
+   PERSONAL PORTFOLIO - SHARED STYLESHEET (style.css)
+   ==========================================================================
+   Theme: Professional & Girly
+   Color Palette: Emerald Green & Warm Yellow-Orange / Amber Gold
+   Pages Styled:
+   - index.html (Home)
+   - projects.html (Projects)
+   - skills.html (Skills)
+   - fun-facts.html (Fun Facts)
+   - contact.html (Contact)
+
+   Designed to be chic, modern, responsive, accessible, and beginner-friendly!
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GOOGLE FONTS IMPORT
+   Playfair Display: Elegant, feminine, editorial serif for headings.
+   Plus Jakarta Sans: Clean, refined modern sans-serif for body readability.
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. COLOR PALETTE & DESIGN CHOICES (CSS VARIABLES)
+   Theme: Professional & Girly
+   Dominant Palette: Warm Yellow-Orange & Amber Gold (Sunlit, Chic, Radiant)
+   Accent Palette: Jewel Emerald Green (Grounding, Elegant, Sophisticated)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Dominant Yellow-Orange & Amber Gold (Radiance, Warmth, Joy, Feminine Energy) */
+  --orange-deep: #78350f;           /* Deep amber mahogany for high-contrast titles */
+  --orange-dark: #b45309;           /* Rich golden-amber for subtitles, brand, & focus */
+  --orange-primary: #d97706;        /* Warm amber / yellow-orange for key interactive elements */
+  --orange-bright: #f59e0b;         /* Sunny marigold yellow-orange for primary buttons & highlights */
+  --orange-vivid: #ea580c;          /* Warm sunset orange for vibrant gradients */
+  --orange-hover: #b45309;          /* Deep warm honey-orange for active hover states */
+  --orange-light: #fffbeb;          /* Warm sunny cream background tint */
+  --orange-soft: #fef3c7;           /* Soft buttercup pastel for tags, pills & badges */
+  --orange-border: #fde68a;         /* Delicate golden-orange border */
+  --orange-border-strong: #f59e0b;  /* Bold marigold border for active/hover */
+  --orange-glow: rgba(245, 158, 11, 0.35); /* Glowing warm amber shadow */
+
+  /* Emerald Green Accent (Sophisticated Luxury & Balance) */
+  --emerald-deep: #064e3b;          /* Forest emerald for rich contrast */
+  --emerald-primary: #047857;       /* Main jewel emerald for secondary buttons & jewel accents */
+  --emerald-hover: #065f46;         /* Deeper emerald for hover */
+  --emerald-light: #ecfdf5;         /* Mint tint for subtle secondary badges */
+  --emerald-border: #a7f3d0;        /* Soft emerald border */
+
+  /* Primary Semantic Mapping - Yellow-Orange is DOMINANT */
+  --primary-color: var(--orange-bright);
+  --primary-hover: var(--orange-hover);
+  --primary-light: var(--orange-light);
+
+  /* Secondary Semantic Mapping - Emerald Green as Accent */
+  --secondary-color: var(--emerald-primary);
+  --secondary-hover: var(--emerald-hover);
+  --secondary-light: var(--emerald-light);
+
+  /* Neutrals & Typography */
+  --heading-color: #291b10;         /* Warm deep amber-slate for crisp readability */
+  --text-color: #3b2d22;            /* Warm charcoal-espresso body text */
+  --text-muted: #786455;            /* Soft warm taupe for descriptions & meta */
+
+  /* Surfaces & Backgrounds */
+  --bg-color: #fdfbf7;              /* Soft warm vanilla cream canvas */
+  --surface-color: #ffffff;         /* Crisp white for cards and sections */
+  --surface-alt: #fffaf0;           /* Delicate honey-tinted surface for placeholders */
+  --border-color: #f3ece2;          /* Clean, warm gentle border */
+  --border-focus: var(--orange-bright);
+
+  /* Warm Amber-Infused Shadows */
+  --shadow-sm: 0 2px 5px rgba(217, 119, 6, 0.05), 0 1px 2px rgba(6, 78, 59, 0.03);
+  --shadow-md: 0 6px 18px -2px rgba(217, 119, 6, 0.09), 0 2px 6px -1px rgba(6, 78, 59, 0.04);
+  --shadow-hover: 0 14px 28px -4px rgba(217, 119, 6, 0.18), 0 4px 10px -2px rgba(245, 158, 11, 0.12);
+
+  /* Typography Settings */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --line-height: 1.65;
+
+  /* Layout Dimensions & Radius */
+  --container-max-width: 1020px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+}
+
+/* --------------------------------------------------------------------------
+   3. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--line-height);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   4. TYPOGRAPHY & LINKS
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--heading-color);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 1.85rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--orange-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--emerald-primary);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   5. LAYOUT CONTAINERS
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+main {
+  flex: 1;
+  padding: 44px 0 70px 0;
+}
+
+.page-header {
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+
+.page-header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  color: var(--orange-deep);
+  letter-spacing: -0.02em;
+}
+
+.page-header p {
+  color: var(--text-muted);
+  font-size: 1.12rem;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Decorative Gold Sparkle Under Page Headers */
+.page-header::after {
+  content: '✦ ✧ ✦';
+  display: block;
+  font-size: 0.95rem;
+  color: var(--orange-bright);
+  letter-spacing: 6px;
+  margin-top: 12px;
+}
+
+/* Content Sections */
+.section {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.section:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange-border);
+}
+
+.section h2 {
+  border-bottom: 2.5px solid var(--orange-border-strong);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  color: var(--orange-deep);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   6. NAVIGATION BAR
+   -------------------------------------------------------------------------- */
+.site-header {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Delicate warm yellow-orange top highlight line */
+.site-header::before {
+  content: '';
+  display: block;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--orange-vivid) 0%, var(--orange-bright) 45%, var(--orange-border) 80%, var(--emerald-primary) 100%);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.nav-brand {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--orange-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.nav-brand::before {
+  content: '✨';
+  font-size: 1rem;
+}
+
+.nav-brand:hover {
+  text-decoration: none;
+  color: var(--orange-vivid);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nav-links a:hover {
+  background-color: var(--orange-soft);
+  color: var(--orange-deep);
+  border-color: var(--orange-border);
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  background: linear-gradient(135deg, var(--orange-bright) 0%, var(--orange-primary) 100%);
+  color: #ffffff;
+  border-color: var(--orange-primary);
+  box-shadow: 0 3px 12px var(--orange-glow);
+}
+
+/* --------------------------------------------------------------------------
+   7. BUTTONS (CHIC, PILL SHAPED, POLISHED)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 24px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Primary Button: Dominant Sunny Yellow-Orange / Amber */
+.btn-primary {
+  background: linear-gradient(135deg, var(--orange-bright) 0%, var(--orange-primary) 100%);
+  color: #ffffff;
+  border-color: var(--orange-primary);
+  box-shadow: 0 4px 14px var(--orange-glow);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, var(--orange-hover) 100%);
+  border-color: var(--orange-hover);
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 6px 18px var(--orange-glow);
+  transform: translateY(-2px);
+}
+
+/* Secondary Button: Jewel Emerald Green */
+.btn-secondary {
+  background-color: var(--emerald-primary);
+  color: #ffffff;
+  border-color: var(--emerald-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--emerald-hover);
+  border-color: var(--emerald-hover);
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Outline Button: Warm Golden Amber */
+.btn-outline {
+  background-color: transparent;
+  color: var(--orange-dark);
+  border-color: var(--orange-border-strong);
+}
+
+.btn-outline:hover {
+  background-color: var(--orange-soft);
+  color: var(--orange-deep);
+  border-color: var(--orange-hover);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. HOME PAGE (HERO & PROFILE)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--orange-light) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radiant top yellow-orange ribbon accent */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange-vivid) 0%, var(--orange-bright) 50%, var(--emerald-primary) 100%);
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 2.85rem;
+  color: var(--orange-deep);
+  margin-bottom: 14px;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.hero-intro {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Profile Image Container with Radiant Yellow-Orange & Amber Gold Frame */
+.profile-image-container {
+  flex-shrink: 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 0 0 3px var(--orange-bright), 0 0 0 7px var(--orange-border), var(--shadow-hover);
+  background-color: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px var(--orange-vivid), 0 0 0 7px var(--orange-border-strong), var(--shadow-hover);
+}
+
+.profile-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   9. PROJECTS PAGE (REUSABLE .project-card & EXPANDABLE GRID)
+   -------------------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 28px;
+}
+
+.project-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--orange-bright);
+}
+
+/* Project Image Container */
+.project-image-wrapper {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange-soft) 50%, #ffffff 100%);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-title {
+  font-size: 1.35rem;
+  color: var(--orange-deep);
+  margin-bottom: 10px;
+}
+
+.project-description {
+  color: var(--text-color);
+  font-size: 0.96rem;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.project-tech {
+  margin-bottom: 22px;
+}
+
+.tech-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--orange-dark);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  background-color: var(--orange-soft);
+  color: var(--orange-deep);
+  border: 1px solid var(--orange-border);
+  font-size: 0.82rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.project-actions .btn {
+  flex: 1;
+  padding: 9px 14px;
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. SKILLS PAGE (REUSABLE .skill-card / .skill-tag & EXPANDABLE GRID)
+   -------------------------------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange-bright);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange-soft) 0%, var(--orange-border) 100%);
+  border: 2px solid var(--orange-bright);
+  box-shadow: 0 3px 8px rgba(245, 158, 11, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+}
+
+.skill-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--orange-deep);
+  margin-bottom: 6px;
+}
+
+.skill-level {
+  font-size: 0.85rem;
+  color: var(--orange-dark);
+  font-weight: 700;
+}
+
+/* Inline Skill Tags (Alternative) */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.skill-tag {
+  display: inline-block;
+  background-color: var(--orange-light);
+  border: 1px solid var(--orange-border);
+  color: var(--orange-deep);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  border-color: var(--orange-bright);
+  background-color: var(--orange-bright);
+  color: #ffffff;
+  box-shadow: 0 2px 8px var(--orange-glow);
+}
+
+/* --------------------------------------------------------------------------
+   11. FUN FACTS PAGE (REUSABLE .fun-fact-card & EXPANDABLE GRID)
+   -------------------------------------------------------------------------- */
+.fun-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 22px;
+}
+
+.fun-fact-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-top: 3.5px solid var(--orange-bright);
+  border-radius: var(--radius-md);
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fun-fact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange-bright);
+  box-shadow: var(--shadow-md);
+}
+
+.fun-fact-icon {
+  font-size: 1.9rem;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.fun-fact-card h3 {
+  font-size: 1.22rem;
+  color: var(--orange-deep);
+  margin-bottom: 8px;
+}
+
+.fun-fact-card p {
+  color: var(--text-color);
+  font-size: 0.96rem;
+}
+
+/* Styled Lists for Hobbies, Interests, Favorites */
+.styled-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.styled-list li {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  color: var(--heading-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.styled-list li:hover {
+  border-color: var(--orange-bright);
+  background-color: var(--orange-light);
+  transform: translateX(3px);
+}
+
+.list-icon {
+  color: var(--orange-bright);
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. CONTACT PAGE (INFORMATION & CONTACT FORM)
+   -------------------------------------------------------------------------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-info-item:hover {
+  border-color: var(--orange-bright);
+  transform: translateX(4px);
+}
+
+.contact-icon {
+  font-size: 1.35rem;
+  color: var(--orange-primary);
+  background-color: var(--orange-soft);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.contact-value {
+  font-size: 1.02rem;
+  color: var(--orange-deep);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--orange-deep);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--text-color);
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--orange-bright);
+  box-shadow: 0 0 0 3px var(--orange-soft), 0 0 0 4px var(--orange-border);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-notice {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   13. MEDIA PLACEHOLDERS (PHOTOS & VIDEOS)
+   -------------------------------------------------------------------------- */
+.media-placeholder-box {
+  width: 100%;
+  border: 2px dashed var(--orange-border-strong);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--orange-light) 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-muted);
+  margin: 18px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.media-placeholder-box p {
+  font-weight: 600;
+  color: var(--orange-deep);
+  margin: 0;
+}
+
+.video-placeholder {
+  min-height: 220px;
+}
+
+/* --------------------------------------------------------------------------
+   14. FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  padding: 32px 20px;
+  margin-top: auto;
+  text-align: center;
+  position: relative;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, var(--orange-bright), var(--orange-border), var(--emerald-primary), transparent);
+}
+
+.footer-content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin-top: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  color: var(--orange-primary);
+}
+
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE MEDIA QUERIES
+   -------------------------------------------------------------------------- */
+/* Tablet & Mobile Screens (below 768px) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  h2 {
+    font-size: 1.55rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 32px 24px;
+    gap: 28px;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .profile-image-container {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 24px 20px;
+  }
+}
+
+/* Small Mobile Screens (below 480px) */
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    padding: 6px 12px;
+    font-size: 0.86rem;
+  }
+
+  .projects-grid,
+  .skills-grid,
+  .fun-facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-actions {
+    flex-direction: column;
+  }
+}
